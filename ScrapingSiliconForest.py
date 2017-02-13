@@ -1,4 +1,4 @@
-#Title: Scrape Silicon Forest Website
+#Title: Scrape Silicon Florist Website
 #Course: Live Project
 #School: The Tech Academy
 #Author: Yuuna Kaparti
@@ -19,7 +19,7 @@ soup = BeautifulSoup(r.content, "html.parser")
 Table_Body = soup.tbody
 
 json_job_dictionary = {}
-json_scrape_file = open("SiliconFloristJsonListing.json", "w") 
+json_scrape_file = open("SiliconFloristJsonListing.txt", "w") 
 
 for i in range (1, 15, 2):
     #Job_Posting_Date
