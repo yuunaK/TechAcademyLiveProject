@@ -35,6 +35,11 @@ for i in range (1, 15, 2):
     print('Job Title: ', re.sub('\s+',' ', jobtitleText))
     json_job_dictionary.update({"Job Title": jobtitleText})
 
+    #Job Id
+    job_id = ""
+    print("Job Id: ", job_id)
+    json_job_dictionary.update(("Job Id" : job_id))
+
     #Company_Name
     company_name = Table_Body.contents[i].contents[3].contents[3]
     company_name = company_name.strip()
@@ -53,6 +58,26 @@ for i in range (1, 15, 2):
     JobLink = job_links.attrs
     print ('Job Link: ', JobLink)
     json_job_dictionary.update({"Job Link": JobLink})
+
+    #experience
+    experience = ""
+    print('Experience: ', experience)
+    json_job_dictionary.update(("Experience" : experience))
+
+    #hours
+    hours = "Full-time"
+    print("Hours: ", hours)
+    json_job_dictionary.update(("Hours" : hours))
+
+    #Languages Used
+    languages_used = ""
+    print("Languages Used: ", languages_used)
+    json_job_dictionary.update(("Languages used: ", languages_used))
+
+    #salary
+    salary = ""
+    print("Salary: ", salary)
+    json_job_dictionary.update(("Salary: ", salary))
 
     #Create a JSON file 
     json.dump(json_job_dictionary, json_scrape_file)
