@@ -19,9 +19,9 @@ soup = BeautifulSoup(r.content, "html.parser")
 Table_Body = soup.tbody
 
 json_job_dictionary = {}
-json_scrape_file = open("SiliconFloristJsonListing.txt", "w") 
+json_scrape_file = open("SiliconFloristJsonListing", "w") 
 
-for i in range (1, 15, 2):
+for i in range (1, len(Table_Body.contents), 2):
     #Job_Posting_Date
     date_posted = Table_Body.contents[i].contents[1]
     datepostedText = date_posted.string
@@ -38,7 +38,7 @@ for i in range (1, 15, 2):
     #Job Id
     job_id = ""
     print("Job Id: ", job_id)
-    json_job_dictionary.update(("Job Id" : job_id))
+    json_job_dictionary.update({"Job Id" : job_id})
 
     #Company_Name
     company_name = Table_Body.contents[i].contents[3].contents[3]
@@ -62,22 +62,22 @@ for i in range (1, 15, 2):
     #experience
     experience = ""
     print('Experience: ', experience)
-    json_job_dictionary.update(("Experience" : experience))
+    json_job_dictionary.update({"Experience" : experience})
 
     #hours
     hours = "Full-time"
     print("Hours: ", hours)
-    json_job_dictionary.update(("Hours" : hours))
+    json_job_dictionary.update({"Hours" : hours})
 
     #Languages Used
     languages_used = ""
     print("Languages Used: ", languages_used)
-    json_job_dictionary.update(("Languages used: ", languages_used))
+    json_job_dictionary.update({"Languages used" : languages_used})
 
     #salary
     salary = ""
     print("Salary: ", salary)
-    json_job_dictionary.update(("Salary: ", salary))
+    json_job_dictionary.update({"Salary" : salary})
 
     #Create a JSON file 
     json.dump(json_job_dictionary, json_scrape_file)
